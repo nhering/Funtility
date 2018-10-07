@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Funtility.Areas.TextAdventure.Models;
 
 namespace Funtility.Models
 {
@@ -29,5 +30,8 @@ namespace Funtility.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<TextAdventureGame> TextAdventureGame { get; set; }
+        public DbSet<TextAdventureSave> TextAdventureSave { get; set; }
     }
 }
