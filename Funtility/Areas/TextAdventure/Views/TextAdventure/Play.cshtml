@@ -41,9 +41,4 @@
     @Html.ActionLink("Back to List", "Index")
 </p>
 
-@Scripts.Render("~/Areas/TextAdventure/Scripts/TextAdventure.js")
-
-<script onload="
-    var game = new TextAdventureGame(Model.GameData, 'play');
-
-    "></script>
+@{ Html.RenderPartial("_Scripts"); }
