@@ -1,13 +1,31 @@
 ﻿function Area() {
-    this.id = new Number; //Needs a mechanism to ensure the id is unique
-    this.title = new String; //e.g. The den, or North end of the path in the Forgoten Forest
-    this.description = new String;
+    this.id; //unique numeric id
+    this.title; //e.g. The den, or North end of the path in the Forgotten Forest
+    this.description; //
     //Navigation Property
-    this.ways = new Array; //Array of way ids
-
+    this.ways = new {}; //Dictionary of wayId:?
 }
 
 function NextAreaId() {
-    if (game.areas == null) return 1;
+    //add the first area
+    if (game.areas.length < 1) return 1;
 
+    //sort the array of areas by id
+    function compareNumbers(a, b) {
+        return a.id - b.id;
+    }
+    game.areas.sort(compareNumbers);
+
+    //find the smallest available id
+    let nextAreaId = null;
+    let i = 0;
+    while (nextAreaId == null) {
+        if (game.areas[i].id == i + 1) {
+            continue;
+        } else {
+            nextAreaId = i + 1;
+        }
+        i++;
+    }
+    return nextAreaId;
 }
