@@ -1,4 +1,4 @@
-﻿var game = new TextAdventureGame;
+﻿var game = new TextAdventureGame();
 
 function InitTextAdventureGame(gameData) {
     game = JSON.parse(gameData);

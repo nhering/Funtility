@@ -1,31 +1,41 @@
-﻿function Area() {
-    this.id; //unique numeric id
-    this.title; //e.g. The den, or North end of the path in the Forgotten Forest
-    this.description; //
-    //Navigation Property
-    this.ways = new {}; //Dictionary of wayId:?
+﻿class Area {
+    constructor(title, description) {
+        this.Id = NextAreaId(); // Unique id: 1
+
+        // I'm not sure this is the best way to do this
+        this.Title = title; // "Bedroom" or "Hallway"
+
+        this.Description = description; // "You are in a bedroom. There is a nature painting on the wall. It's lovely."
+
+        // Collection of {"WayId":AreaId}
+        // WayId: The Id of the Way in this Ways collection
+        // AreaId: The Id of other Area that contains this Way in its Ways collection
+        this.Ways = {}; // {"1":2}
+    }
 }
 
+// TODO Modify NextAreaId() to work for any array of objects at the root
+// level within the TextAdventureGame object that has an Id property
 function NextAreaId() {
-    //add the first area
-    if (game.areas.length < 1) return 1;
+    // Add the first area
+    if (game.Areas.length < 1) return 1;
 
-    //sort the array of areas by id
-    function compareNumbers(a, b) {
+    // Sort the array of areas by id
+    function CompareNumbers(a, b) {
         return a.id - b.id;
     }
-    game.areas.sort(compareNumbers);
+    game.Areas.sort(CompareNumbers);
 
-    //find the smallest available id
-    let nextAreaId = null;
+    // Find the smallest available id
+    let nextId = null;
     let i = 0;
-    while (nextAreaId == null) {
-        if (game.areas[i].id == i + 1) {
+    while (nextId == null) {
+        if (game.Areas[i].Id == i + 1) {
             continue;
         } else {
-            nextAreaId = i + 1;
+            nextId = i + 1;
         }
         i++;
     }
-    return nextAreaId;
+    return nextId;
 }

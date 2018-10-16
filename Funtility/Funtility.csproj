@@ -218,7 +218,6 @@
   <ItemGroup>
     <Content Include="Areas\TextAdventure\Scripts\Area.js" />
     <Content Include="Areas\TextAdventure\Scripts\Player.js" />
-    <Content Include="Areas\TextAdventure\Scripts\TestJson.js" />
     <Content Include="Areas\TextAdventure\Scripts\TextAdventure.js" />
     <Content Include="Areas\TextAdventure\Scripts\Way.js" />
     <Content Include="Content\bootstrap-grid.css" />
