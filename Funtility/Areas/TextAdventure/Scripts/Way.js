@@ -1,5 +1,5 @@
 ﻿function Way() {
-    this.Id; // 1
+    this.Id; // Unique id: 1
     this.WayType; // WayType.Door
 
     // In any given Area.Ways collection, Title must be unique.
@@ -11,9 +11,15 @@
     // Comp: There are two doors to the west.
     //       'Green Door' and 'Red Door'
     //       Which do you want to use?
-    // User: Go west through the red door.
+    // User: Go west through the green door.
     // Comp: (Area.Description)
-    this.Description; // "Green Door" 
+    this.Title; // "Green Door"
+
+    this.Description; // "It's green. And it's a door." 
+
+    // If you can only access the way from one of the two areas
+    // eg. You go down a hole.    
+    this.OneWay; // Store the AreaId that IS accessible
 
     this.Areas = {} // The two areas this Way connects. {AreaID:WayDirection}
         // "1": "WayDirection.West" // From The Hallway the door leads West

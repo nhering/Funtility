@@ -1,17 +1,17 @@
-﻿class Area {
-    constructor(title, description) {
-        this.Id = NextAreaId(); // Unique id: 1
+﻿function Area() {    
+    this.Id = NextAreaId(); // Unique id: 1
 
-        // I'm not sure this is the best way to do this
-        this.Title = title; // "Bedroom" or "Hallway"
+    // I'm not sure this is the best way to do this
+    this.Title = title; // "Bedroom" or "Hallway"
 
-        this.Description = description; // "You are in a bedroom. There is a nature painting on the wall. It's lovely."
+    this.Description = description; // "You are in a bedroom. There is a nature painting on the wall. It's lovely."
 
-        // Collection of {"WayId":AreaId}
-        // WayId: The Id of the Way in this Ways collection
-        // AreaId: The Id of other Area that contains this Way in its Ways collection
-        this.Ways = {}; // {"1":2}
-    }
+    // Collection of {"WayId":AreaId}
+    // WayId: The Id of the Way in this Ways collection
+    // AreaId: The Id of other Area that contains this Way in its Ways collection
+    this.Ways = {}; // {"1":2}
+
+    this.Items; // Array of Item
 }
 
 // TODO Modify NextAreaId() to work for any array of objects at the root

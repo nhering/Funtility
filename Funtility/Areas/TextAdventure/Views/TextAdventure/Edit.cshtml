@@ -4,69 +4,77 @@
     ViewBag.Title = "Text Adventure - " + @Model.Name;
 }
 
+<link href="~/Areas/TextAdventure/Content/TextAdventure.css?rev=5" rel="stylesheet" />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<div id="game-main" class="game-main">
+    
+    <div class="game-header">
 
-    <div class="form-horizontal">
-        <h4>TextAdventureGame</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+        <div class="dropdown">
+            <button class="dropdown-button game-header-button" onclick="ToggleCssClass(['fileMenu'],'show');">File</button>
+            <div id="fileMenu" class="dropdown-content">
+                <a href="#">New</a>
+                <a href="#">Open</a>
+                <a href="#">Save</a>
+                <a href="#">Publish</a>
+                <a href="#">Delete</a>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Published, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <div class="game-title">@Model.Name</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.GameData, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GameData, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GameData, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div id="game-area" class="game-area">
+
+        <div id="modal"></div>
+
+        <hr />
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.UserID)
+
+        <div style="height:500px;" title="Is this game live for other players to see?">
+            @{ var published = "";
+                if (Model.Published == 1) { published = "checked"; } }
+            <input type="checkbox"
+                   name="Published"
+                   @published />
+            <span> Published</span>
+        </div>
+
+        <div style="height:500px;">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "", @id = "txbxGameName" } })
+        </div>
+
+        <div style="height:500px;">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "" })
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "" } })
+        </div>
+
+        <div style="height:500px;">
+            @Html.LabelFor(model => model.GameData, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.GameData, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+
+    </div>
+
 </div>
 
-@{ Html.RenderPartial("_Scripts"); }
+@* Text Adventure JS files *@
+<script src="~/Areas/TextAdventure/Scripts/Area.js?rev=4"></script>
+<script src="~/Areas/TextAdventure/Scripts/Item.js?rev=4"></script>
+<script src="~/Areas/TextAdventure/Scripts/Player.js?rev=4"></script>
+<script src="~/Areas/TextAdventure/Scripts/UI_shared.js?rev=4"></script>
+<script src="~/Areas/TextAdventure/Scripts/Way.js?rev=4"></script>
 
-<div>Edit Menu</div>
+@* Must call all other js files first *@
+<script src="~/Areas/TextAdventure/Scripts/TextAdventure.js?rev=4"></script>
+
+@{var gameData = Model.GameData;}
+
+<script>
+    window.addEventListener('resize', function () {
+        ResizeGameAreaHeight(); });
+    InitTextAdventureGame('@gameData');
+</script>

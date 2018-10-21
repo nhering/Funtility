@@ -1,9 +1,10 @@
 ﻿function Player() {
+    this.Id; // If we decide to go multiplayer
+
     this.AreaId; //The area where the character is currently located
 
-    // this.inventory = new Array; //Array of item ids
-
-    // Could also have properties such as
-    // this.health = new Number;
-    // this.attack = new Number;
+    this.Inventory; //Array of item ids
+    
+    // this.Health;
+    // this.Attack;
 }
