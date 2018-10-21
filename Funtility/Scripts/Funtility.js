@@ -1,7 +1,11 @@
 ﻿// Accepts an array of elementIDs and a CssClass
-function ToggleCssClass(elementIDs,CssClass) {
-    for (i = 0; i < elementIDs.length; i++) {
-        document.getElementById(elementIDs[i]).classList.toggle(CssClass);
+function ToggleCssClass(elementIDs, CssClass) {
+    if (typeof elementIDs === 'string') {
+        document.getElementById(elementIDs).classList.toggle(CssClass);
+    } else {
+        for (i = 0; i < elementIDs.length; i++) {
+            document.getElementById(elementIDs[i]).classList.toggle(CssClass);
+        }
     }
 }
 
