@@ -8,10 +8,10 @@
 
 <div id="game-main" class="game-main">
     
-    <div class="game-header">
+    <div id="game-header" class="game-header">
 
         <div class="dropdown">
-            <button class="dropdown-button game-header-button" onclick="ToggleCssClass(['fileMenu'],'show');">File</button>
+            <button class="dropdown-button game-header-button" onclick="ToggleCssClass('fileMenu','show');">File</button>
             <div id="fileMenu" class="dropdown-content">
                 <a href="#">New</a>
                 <a href="#">Open</a>
@@ -29,7 +29,6 @@
 
         <div id="modal"></div>
 
-        <hr />
         @Html.HiddenFor(model => model.ID)
         @Html.HiddenFor(model => model.UserID)
 
@@ -75,6 +74,7 @@
 
 <script>
     window.addEventListener('resize', function () {
-        ResizeGameAreaHeight(); });
+        ResizeGameAreaHeight();
+    });
     InitTextAdventureGame('@gameData');
 </script>

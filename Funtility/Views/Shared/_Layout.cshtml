@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @RenderSection("scripts", required: false)
+    @{ Html.RenderPartial("_Scripts"); }
     <title>Funtility - @ViewBag.Title</title>
 </head>
 
@@ -10,19 +12,19 @@
 
     <div class="site-grid>">
 
-        <div class="site-header">
+        <div id="site-header" class="site-header">
 
             @Html.ActionLink("Funtility", "Index", "Home", new { @class = "site-title", title = "Home" })
 
             <div class="dropdown">
-                <button class="dropdown-button site-header-button" onclick="ToggleCssClass(['LoginMenu'],'show');">Login / Register</button>
+                <button class="dropdown-button site-header-button" onclick="ToggleCssClass('LoginMenu','show');">Login / Register</button>
                 <div id="LoginMenu" class="dropdown-content">
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
 
             <div class="dropdown">
-                <button class="dropdown-button site-header-button" onclick="ToggleCssClass(['GamesMenu'],'show');">Games</button>
+                <button class="dropdown-button site-header-button" onclick="ToggleCssClass('GamesMenu','show');">Games</button>
                 <div id="GamesMenu" class="dropdown-content">
                     @Html.ActionLink("Text Adventure", "Index", "TextAdventure", new { area = "TextAdventure" })
                 </div>
@@ -32,14 +34,15 @@
 
         @RenderBody()
 
-        <div class="site-footer">
+        <div class="site-footer" id="site-footer">
             <p>&copy; @DateTime.Now.Year - Funtility</p>
         </div>
 
-        @RenderSection("scripts", required: false)
-        @{ Html.RenderPartial("_Scripts"); }
-
     </div>
+
+    <script>
+        ResizeGameAreaHeight();
+    </script>
 
 </body>
 
