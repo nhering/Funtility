@@ -5,12 +5,12 @@
     {
         @Html.AntiForgeryToken()
 
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-content",  title = "Manage" })
         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
     }
 }
 else
 {
-    @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-button site-header-button", id = "registerLink" })
-    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-button site-header-button", id = "loginLink" })
+    @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-content", id = "registerLink" })
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-content", id = "loginLink" })
 }

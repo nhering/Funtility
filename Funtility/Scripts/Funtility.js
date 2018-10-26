@@ -1,9 +1,7 @@
-﻿var debugging = true;
-
-// elementIDs: A single string or an array of strings. The name of one or multiple elements by ID.
-// cssClass: A string the name of the class to add to the elements class list.
+﻿// elementIDs: (string) or (array of strings) The name of one or multiple elements by ID.
+// cssClass: (string) The name of the class to add to the elements class list.
 function ToggleCssClass(elementIDs, cssClass) {
-    if (debugging) console.log("ToggleCssClass()");
+    DoLogging("ToggleCssClass()");
 
     if (typeof elementIDs === 'string') {
         document.getElementById(elementIDs).classList.toggle(cssClass);
@@ -14,22 +12,28 @@ function ToggleCssClass(elementIDs, cssClass) {
     }
 }
 
-window.onclick = function (event) {
-    if (debugging) console.log("window.onclick()");
+window.onmousedown = function (event) {
+    DoLogging("window.onclick()");
 
     if (!event.target.matches('.dropdown-button')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
+        CloseDropdowns();
+    }
+}
+
+function CloseDropdowns() {
+    DoLogging("CloseDropdowns()");
+
+    let dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
         }
     }
 }
 
 function ResizeGameAreaHeight() {
-    if (debugging) console.log("ResizeGameAreaHeight()");
+    DoLogging("ResizeGameAreaHeight()");
 
     let newHeight = window.innerHeight
     let siteHeader = GetElementDimensions('site-header').height;
@@ -40,7 +44,7 @@ function ResizeGameAreaHeight() {
 }
 
 function GetElementDimensions(ElementId) {
-    if (debugging) console.log("GetElementDimensions()");
+    DoLogging("GetElementDimensions()");
 
     let width = document.getElementById(ElementId).clientWidth;
     let height = document.getElementById(ElementId).clientHeight;

@@ -8,28 +8,17 @@
     <title>Funtility - @ViewBag.Title</title>
 </head>
 
-<body  id="site-main">
+<body id="site-main">
 
     <div class="site-grid>">
 
         <div id="site-header" class="site-header">
-
             @Html.ActionLink("Funtility", "Index", "Home", new { @class = "site-title", title = "Home" })
 
-            <div class="dropdown">
-                <button class="dropdown-button site-header-button" onclick="ToggleCssClass('LoginMenu','show');">Login / Register</button>
-                <div id="LoginMenu" class="dropdown-content">
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropdown-button site-header-button" onclick="ToggleCssClass('GamesMenu','show');">Games</button>
-                <div id="GamesMenu" class="dropdown-content">
-                    @Html.ActionLink("Text Adventure", "Index", "TextAdventure", new { area = "TextAdventure" })
-                </div>
-            </div>
-
+            <button class="login-button">Login / Register</button>
+            @*<div id="LoginMenu">
+                @Html.Partial("_LoginPartial")
+            </div>*@
         </div>
 
         @RenderBody()

@@ -1,4 +1,10 @@
-﻿.game-main {
+﻿.gm-header {
+    padding: 0 10%;
+    height: 40px;
+    background-color: #2d2d2d;
+}
+
+.gm-main {
     overflow: hidden;
     position: fixed;
     top: 50px;
@@ -6,10 +12,11 @@
     right: 0;
 }
 
-.game-header {
-    padding: 0 10%;
-    height: 40px;
-    background-color: #2d2d2d;
+.gm-area {
+    overflow-y: auto;
+    padding-left: 10%;
+    padding-right: 20px;
+    background-color: #bababa;
 }
 
 .game-title {
@@ -20,14 +27,57 @@
     font-size: 20px;
 }
 
-.game-header-button {
+.gm-header-button {
+    font-size: 24px;
     height: 40px;
-    width: 200px;
+    width: 100px;
 }
 
-.game-area {
-    overflow-y: auto;
-    padding-left: 10%;
-    padding-right: 10px;
-    background-color: #bababa;
+
+/*#region Dropdown*/
+
+.gm-dropdown {
+    position: relative;
+    display: inline;
 }
+
+.gm-dropdown-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.gm-dropdown-button:hover {
+    background-color: #0026ff;
+}
+
+.gm-dropdown-button:focus {
+    background-color: #0026ff;
+}
+
+.gm-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0026ff;
+    width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.gm-dropdown-content a {
+    font-size: 20px;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.gm-dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+/*#endregion */
