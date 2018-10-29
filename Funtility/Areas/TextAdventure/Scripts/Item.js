@@ -1,7 +1,8 @@
 ﻿function Item() {
-    this.Id;
-    this.Title; // Must be unique
-    this.Description; // "Green Key"
+    this.Id; // INT
+    this.Name; // STRING
+    this.ShortDescription; // STRING
+    this.LongDescription; // STRING
 
     //this.Value;
     //this.Weight;

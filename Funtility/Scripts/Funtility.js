@@ -53,3 +53,51 @@ function GetElementDimensions(ElementId) {
         "height": height,
     };
 }
+
+function Login() {
+    Modal_Open();
+}
+
+//#region Modal
+
+function Modal_Open() {
+    let modal = document.getElementById("modal");
+    modal.removeAttribute("style");
+    modal.setAttribute("class", "modal-fade");
+}
+
+function Modal_Close() {
+    let modal = document.getElementById("modal");
+    modal.removeAttribute("class")
+    modal.setAttribute("style", "display:none;");
+}
+
+//function Modal() {
+//    this.Theme = new ModalTheme;
+//    this.Title = "";
+//    this.BodyClass = "";
+//}
+
+//let ModalTheme = {
+//    Info: 1,
+//    Menu: 2,
+//    Warn: 3,
+//}
+
+//function ThemeModal(theme) {
+//    switch (ModalTheme) {
+//        case ModalTheme.Info:
+//            alert(theme);
+//            break;
+//        case ModalTheme.Menu:
+//            alert(theme);
+//            break;
+//        case ModalTheme.Warn:
+//            alert(theme);
+//            break;
+//        default:
+//            break;
+//    }
+//}
+
+//#endregion

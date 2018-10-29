@@ -15,7 +15,7 @@
         <div id="site-header" class="site-header">
             @Html.ActionLink("Funtility", "Index", "Home", new { @class = "site-title", title = "Home" })
 
-            <button class="login-button">Login / Register</button>
+            <button class="login-button" onclick="Login();">Login / Register</button>
             @*<div id="LoginMenu">
                 @Html.Partial("_LoginPartial")
             </div>*@
@@ -27,6 +27,12 @@
             <p>&copy; @DateTime.Now.Year - Funtility</p>
         </div>
 
+    </div>
+
+    <div id="modal" style="display:none;">
+        <div id="modal-body" class="modal-body">
+            @* Render partial here *@
+        </div>
     </div>
 
     <script>

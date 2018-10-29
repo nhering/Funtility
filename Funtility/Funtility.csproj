@@ -217,12 +217,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\TextAdventure\Content\TextAdventure.css" />
-    <Content Include="Areas\TextAdventure\Scripts\Area.js" />
+    <Content Include="Areas\TextAdventure\Scripts\Cell.js" />
+    <Content Include="Areas\TextAdventure\Scripts\Engine_GamePlayer.js" />
     <Content Include="Areas\TextAdventure\Scripts\Item.js" />
     <Content Include="Areas\TextAdventure\Scripts\Player.js" />
     <Content Include="Areas\TextAdventure\Scripts\TextAdventure.js" />
-    <Content Include="Areas\TextAdventure\Scripts\UI_shared.js" />
-    <Content Include="Areas\TextAdventure\Scripts\Way.js" />
+    <Content Include="Areas\TextAdventure\Scripts\Enigne_GameMaker.js" />
+    <Content Include="Areas\TextAdventure\Scripts\Border.js" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Funtility.css" />
@@ -232,7 +233,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\Debug.js" />
+    <Content Include="Scripts\Logging.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />

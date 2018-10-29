@@ -1,17 +1,25 @@
-﻿var game = null; // New TextAdventureGame();
+﻿var Game = null; // New TextAdventureGame();
 
 function InitTextAdventureGame(gameData) {
-    DoLogging("InitTextAdventureGame()");
+    DoLogging("InitTextAdventureGame(gameData)", [gameData]);
 
     if (game != null) { return } // There should only be one game object and we don't want to overwrite it
-    game = JSON.parse(gameData);
+    Game = JSON.parse(gameData);
 }
 
 function TextAdventureGame() {
-    DoLogging("TextAdventureGame()");
+    DoLogging(LogType.Function, "TextAdventureGame()", []);
+
     // These are all arrays
-    this.Areas;
+    this.Cells;
     this.Items;
     this.Players; // In case we decide to have multiplayer games
-    this.Ways;
+    this.Borders;
+
+    // Does this belong inside the game object? Or is it a completely different object?
+    // Stores the list of commands entered.
+    // I'm thinking this is a dicionary:
+    // { 1:"Go west", 2:"Pick up key", etc...}
+    // That would make it easy to keep it chronological
+    this.Recording;
 }
