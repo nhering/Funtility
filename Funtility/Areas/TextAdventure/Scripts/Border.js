@@ -29,5 +29,9 @@ let DoorTexture = {
 
 // Constructor
 function NewBorder(CellA, CellB) {
-    DoLogging(LogType.Function, "NewBorder(CellA, CellB", [CellA, CellB]);
+    DoLogging(LogType.Function, "NewBorder(CellA, CellB)", [CellA, CellB]);
+
+    let border = new Border();
+    border.Id = NextId(NextIdType.Border);
+
 }

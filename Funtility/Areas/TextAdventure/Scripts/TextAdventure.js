@@ -1,4 +1,11 @@
-﻿var Game = null; // New TextAdventureGame();
+﻿let Game = null; // New TextAdventureGame();
+
+let Direction = {
+    North: 1,
+    East: 2,
+    South: 3,
+    West: 4,
+}
 
 function InitTextAdventureGame(gameData) {
     DoLogging("InitTextAdventureGame(gameData)", [gameData]);
