@@ -14,24 +14,31 @@ function Border() {
 }
 
 let BorderTexture = {
-    Metal: 1,
+    Metal: 1, // Default
     Wood: 2,
     Brick: 3,
     Drywall: 4,
+    Stone: 5,
     // Etc...
 }
 
 let DoorTexture = {
-    Metal: 1,
+    Metal: 1, // Default
     Wood: 2,
     // Etc...
 }
 
 // Constructor
-function NewBorder(CellA, CellB) {
-    DoLogging(LogType.Function, "NewBorder(CellA, CellB)", [CellA, CellB]);
+function NewBorder() {
+    DoLogging(LogType.Function, "NewBorder()", []);
 
-    let border = new Border();
-    border.Id = NextId(NextIdType.Border);
+    let newBorder = new Border();
+    newBorder.Id = NextId(NextIdType.Border);
+    newBorder.RenderBorder = true;
+    newBorder.BorderTexture = BorderTexture.Metal;
+    newBorder.RenderDoor = false;
 
+    Game.Borders.push(newBorder);
+
+    return newBorder.Id;
 }

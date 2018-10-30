@@ -1,19 +1,5 @@
 ﻿let Game = null; // New TextAdventureGame();
 
-let Direction = {
-    North: 1,
-    East: 2,
-    South: 3,
-    West: 4,
-}
-
-function InitTextAdventureGame(gameData) {
-    DoLogging("InitTextAdventureGame(gameData)", [gameData]);
-
-    if (game != null) { return } // There should only be one game object and we don't want to overwrite it
-    Game = JSON.parse(gameData);
-}
-
 function TextAdventureGame() {
     DoLogging(LogType.Function, "TextAdventureGame()", []);
 
@@ -29,4 +15,23 @@ function TextAdventureGame() {
     // { 1:"Go west", 2:"Pick up key", etc...}
     // That would make it easy to keep it chronological
     this.Recording;
+}
+
+function CreateNewTextAdventureGame() {
+    Game = new TextAdventureGame();
+    let firstCell = CreateNewCell(null, null);    
+}
+
+function LoadTextAdventureGame(gameData) {
+    DoLogging("InitTextAdventureGame(gameData)", [gameData]);
+
+    if (game != null) { return } // There should only be one game object and we don't want to overwrite it
+    Game = JSON.parse(gameData);
+}
+
+let Direction = {
+    North: 1,
+    East: 2,
+    South: 3,
+    West: 4,
 }
