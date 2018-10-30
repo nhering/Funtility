@@ -22,10 +22,10 @@ function CreateNewCell(existingCell, direction) {
     let newCell = new Cell();
     newCell.Id = NextId(NextIdType.Cell);
 
-    if (existingCell) { // If CurrentCell is not null or empty then there is already at least one cell in the game
+    if (existingCell) { // If existingCell is not null or empty then there is already at least one cell in the game
         newCell = GetNewCellCoordinates(newCell, existingCell, direction);
         newCell = GetNewCellBorders(newCell);
-    } else { // If CurrentCell is empty, then this is the first cell
+    } else { // If existingCell is empty, then this is the first cell
         newCell.X = 0;
         newCell.Y = 0;
         this.NorthBorder = NewBorder();
@@ -71,36 +71,36 @@ function GetNewCellBorders(newCell) { //TODO: Complete this
     g = new TextAdventureGame();
     g.Cells.forEach(GetExistingCellBorderOrNewBorder(cell));
 
-    let CellToTheNorthsCoords = { X: newCell.X, Y: newCell.Y + 1 };
-    let CellToTheEastsCoords = { X: newCell.X + 1, Y: newCell.Y };
-    let CellToTheSouthsCoords = { X: newCell.X, Y: newCell.Y - 1 };
-    let CellToTheWestsCoords = { X: newCell.X - 1, Y: newCell.Y };
+    let cellToTheNorthsCoords = { X: newCell.X, Y: newCell.Y + 1 };
+    let cellToTheEastsCoords = { X: newCell.X + 1, Y: newCell.Y };
+    let cellToTheSouthsCoords = { X: newCell.X, Y: newCell.Y - 1 };
+    let cellToTheWestsCoords = { X: newCell.X - 1, Y: newCell.Y };
 
     function GetExistingCellBorderOrNewBorder(cell) {
         // NorthBorder
-        if (cell.X === CellToTheNorth.X &&
-            cell.Y === CellToTheNorth.Y) {
+        if (cell.X === cellToTheNorthsCoords.X &&
+            cell.Y === cellToTheNorthsCoords.Y) {
             newCell.NorthBorder = cell.SouthBorder;
         } else {
             newCell.SouthBorder = NewBorder();
         }
         // EastBorder
-        if (cell.X === CellToTheEastsCoords.X &&
-            cell.Y === CellToTheEastsCoords.Y) {
+        if (cell.X === cellToTheEastsCoords.X &&
+            cell.Y === cellToTheEastsCoords.Y) {
             newCell.EastBorder = cell.WestBorder;
         } else {
             newCell.EastBorder = NewBorder();
         }
         // SouthBorder
-        if (cell.X === CellToTheSouthsCoords.X &&
-            cell.Y === CellToTheSouthsCoords.Y) {
+        if (cell.X === cellToTheSouthsCoords.X &&
+            cell.Y === cellToTheSouthsCoords.Y) {
             newCell.SouthBorder = cell.NorthBorder;
         } else {
             newCell.SouthBorder = NewBorder();
         }
         // WestBorder
-        if (cell.X === CellToTheWestsCoords.X &&
-            cell.Y === CellToTheWestsCoords.Y) {
+        if (cell.X === cellToTheWestsCoords.X &&
+            cell.Y === cellToTheWestsCoords.Y) {
             newCell.WestBorder = cell.EastBorder;
         } else {
             newCell.EastBorder = NewBorder();
