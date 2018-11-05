@@ -8,10 +8,11 @@ let LoggingLevel = {
 let LogType = {
     Function: 1,
     InputError: 2,
+    Error: 3,
 }
 
 let LogLevel = LoggingLevel.FunctionAndArgs; // Making this global exposes its value to the server
-let LogLength = 1; // This cann also be set by the server
+let LogLength = 5; // This can also be set by the server
 let Log = [];
 
 function DoLogging(type, func, args) {
@@ -29,26 +30,24 @@ function DoLogging(type, func, args) {
 
 function LogEntry() {
     this.TimeStamp = Date.now();
-    this.LogType = new LogType;
+    this.LogType;
     this.Function = "";
     this.Args = []
 }
 
 function DoLogging_Function(type, func) {
     let e = new LogEntry();
-    e.LogType = type;
+    e.LogType = LogType[type];
     e.Function = func;
     ManageLog(e);
 }
 
 function DoLogging_FunctionAndArgs(type, func, args) {
+    let a = args || [];
     let e = new LogEntry();
     e.LogType = type;
     e.Function = func;
-    args.forEach(add);
-    function add(item, index, array) {
-        e.Args.push(item);
-    }
+    a.forEach(function (item) { e.Args.push(item) });
     ManageLog(e);
 }
 
@@ -62,6 +61,9 @@ function ManageLog(logEntry) {
 }
 
 function SendLog() {
-    console.log(Log);
+    let navAppVer = navigator.appVersion;
+    let logPackage = { appVersion: navAppVer, log: Log };
+    //alert(JSON.stringify(logPackage));
+    console.log(JSON.stringify(logPackage));
     // TODO: Add async call to the server passing in the log object
 }

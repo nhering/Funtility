@@ -16,7 +16,7 @@ namespace Funtility.Areas.TextAdventure
         {
             context.MapRoute(
                 "TextAdventure_default",
-                "{controller}/{action}/{id}",
+                "TextAdventure/{Controller}/{action}/{id}",
                 new { controller = "TextAdventure", action = "Index", id = UrlParameter.Optional }
             );
         }

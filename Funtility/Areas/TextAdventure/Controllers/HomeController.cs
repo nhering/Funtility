@@ -11,7 +11,7 @@ using Funtility.Models;
 
 namespace Funtility.Areas.TextAdventure.Controllers
 {
-    public class TextAdventureController : Controller
+    public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

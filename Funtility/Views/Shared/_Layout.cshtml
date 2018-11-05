@@ -12,31 +12,36 @@
 
     <div class="site-grid>">
 
+        <!------ site-grid ROW 1 ------>
         <div id="site-header" class="site-header">
-            @Html.ActionLink("Funtility", "Index", "Home", new { @class = "site-title", title = "Home" })
-
-            <button class="login-button" onclick="Login();">Login / Register</button>
-            @*<div id="LoginMenu">
-                @Html.Partial("_LoginPartial")
-            </div>*@
+            @{ Html.RenderPartial("_HeaderPartial"); }
         </div>
 
-        @RenderBody()
-
-        <div class="site-footer" id="site-footer">
-            <p>&copy; @DateTime.Now.Year - Funtility</p>
+        <!------ site-grid ROW 2 ------>
+        <div id="site-body" class="site-body">
+            @RenderBody()
         </div>
 
-    </div>
-
-    <div id="modal" style="display:none;">
-        <div id="modal-body" class="modal-body">
-            @* Render partial here *@
+        <!------ site-grid ROW 3 ------>
+        <div id="site-footer" class="site-footer">
+            @{ Html.RenderPartial("_FooterPartial"); }
         </div>
+
+
+    </div> <!-- End Site Grid -->
+
+    <!--
+        This places a div over the whole page to:
+        - Create the fade effect
+        - Force interaction with the modal
+        - Facilitate capture of viewport dimensions
+    -->
+    <div id="modal" style="display: none;">
+        @* Render partial here *@
     </div>
 
     <script>
-        ResizeGameAreaHeight();
+        ResizeBodyArea();
     </script>
 
 </body>

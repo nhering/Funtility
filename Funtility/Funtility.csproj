@@ -190,7 +190,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\TextAdventure\Controllers\TextAdventureController.cs" />
+    <Compile Include="Areas\TextAdventure\Controllers\HomeController.cs" />
     <Compile Include="Areas\TextAdventure\Models\TextAdventureGame.cs" />
     <Compile Include="Areas\TextAdventure\Models\TextAdventureSave.cs" />
     <Compile Include="Areas\TextAdventure\TextAdventureAreaRegistration.cs" />
@@ -244,11 +244,11 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="Areas\TextAdventure\Views\web.config" />
     <Content Include="Areas\TextAdventure\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\TextAdventure\Create.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\TextAdventure\Delete.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\TextAdventure\Play.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\TextAdventure\Edit.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\TextAdventure\Index.cshtml" />
+    <Content Include="Areas\TextAdventure\Views\Home\Create.cshtml" />
+    <Content Include="Areas\TextAdventure\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\TextAdventure\Views\Home\Play.cshtml" />
+    <Content Include="Areas\TextAdventure\Views\Home\Edit.cshtml" />
+    <Content Include="Areas\TextAdventure\Views\Home\Index.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -319,6 +319,9 @@
     </Content>
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_Scripts.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\Modals\_LoginModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

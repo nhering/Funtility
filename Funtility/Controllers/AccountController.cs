@@ -57,8 +57,8 @@ namespace Funtility.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            //ViewBag.ReturnUrl = returnUrl;
+            return PartialView("Modals/_LoginModal");
         }
 
         //
@@ -70,7 +70,7 @@ namespace Funtility.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return PartialView("Modals/_LoginModal");
             }
 
             // This doesn't count login failures towards account lockout
