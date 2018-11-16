@@ -1,16 +1,33 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AntiforgeryTokenElementId" }))
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-    {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
+}
+<button class="login-button" onclick="Modal_Open(CreateLoginModalObj());">Login / Register</button>
 
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-content",  title = "Manage" })
-        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+<script>
+    function CreateLoginModalObj() {
+        let modalObj = new ModalObj();
+        modalObj.HtmlSource = modalObj.Sources.Server;
+        modalObj.ControllerAction = "/Account/Login";
+        modalObj.AntiforgeryTokenElementId = "__AntiForgeryLoginToken";
+        return modalObj;
     }
-}
-else
-{
+</script>
+
+
+@*@using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "dropdown-content",  title = "Manage" })
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    }
+    else
+    {
     @Html.ActionLink("Login / Register", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-content", id = "registerLink" })
-    @*@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-content", id = "loginLink" })*@
-}
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "dropdown-content", id = "loginLink" })
+    }*@

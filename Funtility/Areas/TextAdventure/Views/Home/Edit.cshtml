@@ -7,7 +7,7 @@
 <link href="~/Areas/TextAdventure/Content/TextAdventure.css?rev=5" rel="stylesheet" />
 
 <div id="site-body" class="gm-main">
-    
+
     <div id="game-header" class="gm-header">
 
         <div class="gm-dropdown">
@@ -28,7 +28,7 @@
         @Html.HiddenFor(model => model.ID)
         @Html.HiddenFor(model => model.UserID)
 
-        <div>
+        <div style="height:500px;">
             @{ var published = "";
                 if (Model.Published == 1) { published = "checked"; } }
             <input type="checkbox"
@@ -57,11 +57,12 @@
 </div>
 
 @* Text Adventure JS files *@
-<script src="~/Areas/TextAdventure/Scripts/Area.js?rev=4"></script>
-<script src="~/Areas/TextAdventure/Scripts/Item.js?rev=4"></script>
-<script src="~/Areas/TextAdventure/Scripts/Player.js?rev=4"></script>
-<script src="~/Areas/TextAdventure/Scripts/UI_shared.js?rev=4"></script>
-<script src="~/Areas/TextAdventure/Scripts/Way.js?rev=4"></script>
+<script src="~/Areas/TextAdventure/Scripts/Border.js"></script>
+<script src="~/Areas/TextAdventure/Scripts/Cell.js"></script>
+<script src="~/Areas/TextAdventure/Scripts/Engine_GamePlayer.js"></script>
+<script src="~/Areas/TextAdventure/Scripts/Enigne_GameMaker.js"></script>
+<script src="~/Areas/TextAdventure/Scripts/Item.js"></script>
+<script src="~/Areas/TextAdventure/Scripts/Player.js"></script>
 
 @* Must call all other js files first *@
 <script src="~/Areas/TextAdventure/Scripts/TextAdventure.js?rev=4"></script>
@@ -72,5 +73,5 @@
     window.addEventListener('resize', function () {
         ResizeBodyArea();
     });
-    InitTextAdventureGame('@gameData');
+    LoadTextAdventureGame('@gameData');
 </script>

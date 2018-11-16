@@ -23,7 +23,7 @@ function CreateNewTextAdventureGame() {
 }
 
 function LoadTextAdventureGame(gameData) {
-    DoLogging("InitTextAdventureGame(gameData)", [gameData]);
+    DoLogging("LoadTextAdventureGame(gameData)", [gameData]);
 
     if (game != null) { return } // There should only be one game object and we don't want to overwrite it
     Game = JSON.parse(gameData);

@@ -1,7 +1,3 @@
 ﻿@Html.ActionLink("Funtility", "Index", "Home", new { area = "" }, new { @class = "site-title", title = "Home" })
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "__AntiForgery" }))
-{
-    @Html.AntiForgeryToken()
-}
-<button class="login-button" onclick="Modal_Open(true, '/Account/Login', null, null);">Login / Register</button>
+@{ Html.RenderPartial("_LoginPartial"); }

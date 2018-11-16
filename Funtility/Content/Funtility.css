@@ -30,7 +30,7 @@
     float: right;
     margin: 0 10px;
     width: 200px;
-    height: 50px;es up
+    height: 50px;
 }
 
 .site-footer {
@@ -64,16 +64,18 @@
     right: 0;
     bottom: 0;
     left: 0;
-    /* This is the defalut value set by Modal_Open() */
-    /* background-color: rgba(255,255,255,.9); */
 }
 
 .modal-body {
     z-index: 1;
     display: block;
     position: fixed;
-    /*width: 800px;
-    height: 450px;*/
+}
+
+.modal-login {
+    width: 400px;
+    height: 400px;
+    background-color: cornflowerblue;
 }
 
 /*#endregion*/
