@@ -214,6 +214,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\TextAdventure\Content\TextAdventure.css" />
@@ -224,6 +225,7 @@
     <Content Include="Areas\TextAdventure\Scripts\TextAdventure.js" />
     <Content Include="Areas\TextAdventure\Scripts\Enigne_GameMaker.js" />
     <Content Include="Areas\TextAdventure\Scripts\Border.js" />
+    <Content Include="Areas\TextAdventure\Scripts\UI.js" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\Funtility.css" />
@@ -245,9 +247,7 @@
     <Content Include="Areas\TextAdventure\Views\web.config" />
     <Content Include="Areas\TextAdventure\Views\_ViewStart.cshtml" />
     <Content Include="Areas\TextAdventure\Views\Home\Create.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\Home\Delete.cshtml" />
     <Content Include="Areas\TextAdventure\Views\Home\Play.cshtml" />
-    <Content Include="Areas\TextAdventure\Views\Home\Edit.cshtml" />
     <Content Include="Areas\TextAdventure\Views\Home\Index.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -323,6 +323,7 @@
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\Modals\_LoginModal.cshtml" />
     <Content Include="Views\Shared\Modals\_LoginModal - Copy.cshtml" />
+    <Content Include="Views\Home\_GameCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

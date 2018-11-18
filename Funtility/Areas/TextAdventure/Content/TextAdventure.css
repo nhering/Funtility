@@ -2,6 +2,8 @@
     padding: 0 10%;
     height: 40px;
     background-color: #2d2d2d;
+    position: sticky;
+    top: 0;
 }
 
 .gm-main {
@@ -32,6 +34,36 @@
     width: 100px;
 }
 
+.gm-settings-button{
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0,0,0,.6);
+    border-radius: 3px;
+    padding: 7px 8px;
+    margin: 3px;
+    margin-left: 8px;
+    background-color: rgba(255,255,255,.2);
+    cursor: pointer;
+}
+
+.gm-settings-button:hover {
+    background-color: rgba(255,255,255,.5);
+}
+
+.gm-settings-area {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    margin-top: 2px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: rgb(45, 45, 45) 0px 3px 6px;
+    border-color: rgb(45,45,45);
+    border-width: 3px;
+    border-style: solid;
+    border-top: none;
+}
 
 /*#region Dropdown*/
 

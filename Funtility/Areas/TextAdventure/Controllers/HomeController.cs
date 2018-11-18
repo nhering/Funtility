@@ -38,9 +38,27 @@ namespace Funtility.Areas.TextAdventure.Controllers
         }
 
         // GET: TextAdventure/TextAdventureGame/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            if (id == 0)
+            {
+                TextAdventureGame newGame = new TextAdventureGame()
+                {
+                    ID = 0,
+                    UserID = 0, //TODO get user ID
+                    Published = 0,
+                    Name = "New Game",
+                    Description = "Give this game a description",
+                    GameData = "NEW"
+                };
+                return View(newGame);
+            }
+            TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
+            if (textAdventureGame == null)
+            {
+                return HttpNotFound();//TODO Redirect to index view. Maybe with a message?
+            }
+            return View(textAdventureGame);
         }
 
         // POST: TextAdventure/TextAdventureGame/Create
@@ -60,62 +78,71 @@ namespace Funtility.Areas.TextAdventure.Controllers
             return View(textAdventureGame);
         }
 
-        // GET: TextAdventure/TextAdventureGame/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
-            if (textAdventureGame == null)
-            {
-                return HttpNotFound();
-            }
-            return View(textAdventureGame);
-        }
+        //// GET: TextAdventure/TextAdventureGame/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        TextAdventureGame newGame = new TextAdventureGame()
+        //        {
+        //            ID = 0,
+        //            UserID = 0, //TODO get user ID
+        //            Published = 0,
+        //            Name = "New Game",
+        //            Description = "Give this game a description",
+        //            GameData = ""
+        //        };
+        //        return View(newGame);
+        //    }
+        //    TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
+        //    if (textAdventureGame == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(textAdventureGame);
+        //}
 
-        // POST: TextAdventure/TextAdventureGame/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,UserID,Published,Name,Description,GameData")] TextAdventureGame textAdventureGame)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(textAdventureGame).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(textAdventureGame);
-        }
+        //// POST: TextAdventure/TextAdventureGame/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "ID,UserID,Published,Name,Description,GameData")] TextAdventureGame textAdventureGame)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(textAdventureGame).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(textAdventureGame);
+        //}
 
-        // GET: TextAdventure/TextAdventureGame/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
-            if (textAdventureGame == null)
-            {
-                return HttpNotFound();
-            }
-            return View(textAdventureGame);
-        }
+        //// GET: TextAdventure/TextAdventureGame/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
+        //    if (textAdventureGame == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(textAdventureGame);
+        //}
 
-        // POST: TextAdventure/TextAdventureGame/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
-            db.TextAdventureGame.Remove(textAdventureGame);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: TextAdventure/TextAdventureGame/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
+        //    db.TextAdventureGame.Remove(textAdventureGame);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

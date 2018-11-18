@@ -4,7 +4,7 @@ function TextAdventureGame() {
     DoLogging(LogType.Function, "TextAdventureGame()", []);
 
     // These are all arrays
-    this.Cells;
+    this.Cells = [];
     this.Items;
     this.Players; // In case we decide to have multiplayer games
     this.Borders;
@@ -18,15 +18,23 @@ function TextAdventureGame() {
 }
 
 function CreateNewTextAdventureGame() {
+    DoLogging(LogType.Function, "CreateNewTextAdventureGame()", []);
+
     Game = new TextAdventureGame();
-    let firstCell = CreateNewCell(null, null);    
+
+    let firstCell = CreateNewCell(null, null);
+    Game.Cells.push(firstCell);
 }
 
 function LoadTextAdventureGame(gameData) {
     DoLogging("LoadTextAdventureGame(gameData)", [gameData]);
 
-    if (game != null) { return } // There should only be one game object and we don't want to overwrite it
-    Game = JSON.parse(gameData);
+    // There should only be one game object and we don't want to overwrite it
+    if (Game == null) {
+        return
+    } else {
+        Game = JSON.parse(gameData);
+    }
 }
 
 let Direction = {

@@ -1,8 +1,20 @@
-﻿* {
+﻿/*#region Whole Site */
+
+/*#region Custom Properties*/
+:root {
+    /*Site Home*/
+    --border-color: black;
+    --border-radius: 6px;
+    --border-style: solid;
+    --border-width: 1px;
+    --background-color: rgba(0, 0, 0, .1);
+}
+/*#endregion*/
+
+* {
     margin: 0px;
     padding: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
 }
 
 .site-grid {
@@ -33,6 +45,13 @@
     height: 50px;
 }
 
+.site-body {
+    position: fixed;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
 .site-footer {
     position: fixed;
     bottom: 0;
@@ -41,6 +60,8 @@
     color: #444;
     padding: 10px 10%;
 }
+
+/*#endregion*/
 
 .login-button {
     float: right;
@@ -70,12 +91,50 @@
     z-index: 1;
     display: block;
     position: fixed;
+    border-color: var(--border-color);
+    border-width: var(--border-width);
 }
 
 .modal-login {
     width: 400px;
     height: 400px;
     background-color: cornflowerblue;
+}
+
+/*#endregion*/
+
+/*#region GameCard*/
+
+.gameCardHead {
+
+}
+
+.gameCard {
+    border-width: var(--border-width);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 400px;
+}
+
+.gameCardTitle {
+    border-width: var(--border-width);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    background-color: var(--background-color);
+    padding: 8px;
+    line-height: 22px;
+    margin-bottom: 4px;
+}
+
+.gameCardDescription {
+    border-width: var(--border-width);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    background-color: var(--background-color);
+    padding: 4px;
 }
 
 /*#endregion*/

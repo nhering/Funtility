@@ -1,10 +1,4 @@
-﻿let PageType = {
-    Main: 1,
-    Game: 2,
-    UserSettings: 3,
-}
-
-// elementIDs: (string) or (array of strings) The name of one or multiple elements by ID.
+﻿// elementIDs: (string) or (array of strings) The name of one or multiple elements by ID.
 // cssClass: (string) The name of the class to add to the elements class list.
 function ToggleCssClass(elementIDs, cssClass) {
     DoLogging(LogType.Function, "ToggleCssClass(elementIDs, cssClass)", [elementIDs, cssClass]);
@@ -19,9 +13,7 @@ function ToggleCssClass(elementIDs, cssClass) {
 }
 
 window.onmousedown = function (event) {
-    DoLogging(LogType.Function, "window.onmousedown()", []);
-
-    if (!event.target.matches('.dropdown-button')) {
+    if (!event.target.matches('.dropdown-buttfight on')) {
         CloseDropdowns();
     }
 }
@@ -42,13 +34,13 @@ function CloseDropdowns() {
 
 function ResizeBodyArea() {
     DoLogging(LogType.Function, "ResizeBodyArea()", []);
+    let siteBody = document.getElementById('site-body');
 
-    let newHeight = window.innerHeight
+    let newHeight = window.innerHeight;
     let siteHeader = GetElementDimensions('site-header').height;
     let siteFooter = GetElementDimensions('site-footer').height;
     newHeight -= (siteHeader + siteFooter);
-
-    document.getElementById('site-body').style.height = newHeight + "px";
+    siteBody.setAttribute("style", "top:" + siteHeader + "px;bottom:" + siteFooter + "px;height:" + newHeight + "px;");
 }
 
 function GetElementDimensions(ElementId) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Funtility.ViewModels;
 
 namespace Funtility.Controllers
 {
@@ -10,7 +11,8 @@ namespace Funtility.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel homeViewModel = new HomeViewModel();
+            return View(homeViewModel);
         }
 
         public ActionResult About()
