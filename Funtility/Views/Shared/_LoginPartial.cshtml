@@ -1,8 +1,22 @@
-﻿@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AntiforgeryTokenElementId" }))
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
 {
-    @Html.AntiForgeryToken()
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <button class="login-button" onclick="document.getElementById('logoutForm').submit()" title="Logged in as @User.Identity.GetUserName()">Log Out</button>
+    }
 }
-<button class="login-button" onclick="Modal_Open(CreateLoginModalObj());">Login / Register</button>
+else
+{
+    using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AntiforgeryTokenElementId" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+    <button class="login-button" onclick="Modal_Open(CreateLoginModalObj());">Login / Register</button>
+
+}
 
 <script>
     function CreateLoginModalObj() {

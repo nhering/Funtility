@@ -15,19 +15,19 @@ namespace Funtility.Areas.TextAdventure.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: TextAdventure/TextAdventureGame
+        // GET: TextAdventure/Home
         public ActionResult Index()
         {
             //return View(db.TextAdventureGame.ToList());
             return View();
         }
 
-        // GET: TextAdventure/TextAdventureGame/Details/5
+        // GET: TextAdventure/Home/Details/5
         public ActionResult Play(int? id)
         {
-            if (id == null)
+            if (id == 0)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View();
             }
             TextAdventureGame textAdventureGame = db.TextAdventureGame.Find(id);
             if (textAdventureGame == null)
@@ -37,7 +37,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
             return View(textAdventureGame);
         }
 
-        // GET: TextAdventure/TextAdventureGame/Create
+        // GET: TextAdventure/Home/Create?id=0
         public ActionResult Create(int? id)
         {
             if (id == 0)
@@ -61,7 +61,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
             return View(textAdventureGame);
         }
 
-        // POST: TextAdventure/TextAdventureGame/Create
+        // POST: TextAdventure/Home/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -78,7 +78,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
             return View(textAdventureGame);
         }
 
-        //// GET: TextAdventure/TextAdventureGame/Edit/5
+        //// GET: TextAdventure/Home/Edit/5
         //public ActionResult Edit(int? id)
         //{
         //    if (id == null)
@@ -102,7 +102,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
         //    return View(textAdventureGame);
         //}
 
-        //// POST: TextAdventure/TextAdventureGame/Edit/5
+        //// POST: TextAdventure/Home/Edit/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
@@ -118,7 +118,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
         //    return View(textAdventureGame);
         //}
 
-        //// GET: TextAdventure/TextAdventureGame/Delete/5
+        //// GET: TextAdventure/Home/Delete/5
         //public ActionResult Delete(int? id)
         //{
         //    if (id == null)
@@ -133,7 +133,7 @@ namespace Funtility.Areas.TextAdventure.Controllers
         //    return View(textAdventureGame);
         //}
 
-        //// POST: TextAdventure/TextAdventureGame/Delete/5
+        //// POST: TextAdventure/Home/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public ActionResult DeleteConfirmed(int id)
