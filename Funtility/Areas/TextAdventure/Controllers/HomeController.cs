@@ -18,7 +18,6 @@ namespace Funtility.Areas.TextAdventure.Controllers
         // GET: TextAdventure/Home
         public ActionResult Index()
         {
-            //return View(db.TextAdventureGame.ToList());
             return View();
         }
 

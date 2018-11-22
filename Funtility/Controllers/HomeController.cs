@@ -12,9 +12,6 @@ namespace Funtility.Controllers
     {
         public ActionResult Index()
         {
-            string thisUser = User.Identity.GetUserId();
-
-            System.Security.Principal.WindowsIdentity r = Request.LogonUserIdentity;
             HomeViewModel homeViewModel = new HomeViewModel();
             return View(homeViewModel);
         }

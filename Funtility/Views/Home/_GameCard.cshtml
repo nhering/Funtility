@@ -1,4 +1,10 @@
 ﻿@model Funtility.ViewModels.GameCard
+
+@{ 
+    var home = Model.BaseUrl + "/TextAdventure/Home";
+    var play = Model.BaseUrl + "/TextAdventure/Home/Play?id=0";
+    var create = Model.BaseUrl + "/TextAdventure/Home/Create?id=0";
+}
 <style>
     .gameCard-head {
         height: 30px;
@@ -53,8 +59,8 @@
     </div>
 
     <div class="gameCard-footer">
-        <a href="http://localhost:54678/TextAdventure/Home" class="fa fa-home gameCard-footer-button"> Home</a>
-        <a href="http://localhost:54678/TextAdventure/Home/Play?id=0" class="fa fa-play gameCard-footer-button"> Play</a>
-        <a href="http://localhost:54678/TextAdventure/Home/Create?id=0" class="fa fa-pencil-square gameCard-footer-button"> Create</a>
+        <a href="@home" class="fa fa-home gameCard-footer-button"> Home</a>
+        <a href="@play" class="fa fa-play gameCard-footer-button"> Play</a>
+        <a href="@create" class="fa fa-pencil-square gameCard-footer-button"> Create</a>
     </div>
 </div>

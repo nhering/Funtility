@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace Funtility.ViewModels
 {
@@ -22,13 +23,18 @@ namespace Funtility.ViewModels
     {
         public string GameName { get; set; }
         public string Description { get; set; }
-        public string URL_index { get; set; }
+        public string BaseUrl
+        {
+            get
+            {
+                return WebConfigurationManager.AppSettings["baseUrl"];
+            }
+        }
 
         public GameCard()
         {
             this.GameName = "Text Adventure Maker";
             this.Description = "You can make your own game or play a friends!";
-            this.URL_index = "";
         }
     }
 }

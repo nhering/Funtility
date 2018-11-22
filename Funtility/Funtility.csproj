@@ -194,6 +194,7 @@
     <Compile Include="Areas\TextAdventure\Models\TextAdventureGame.cs" />
     <Compile Include="Areas\TextAdventure\Models\TextAdventureSave.cs" />
     <Compile Include="Areas\TextAdventure\TextAdventureAreaRegistration.cs" />
+    <Compile Include="Areas\TextAdventure\ViewModels\GamesListViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -254,6 +255,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\funtility.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Funtility.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -317,19 +319,12 @@
     <Content Include="Web-Dev.Release.config">
       <DependentUpon>Web-Dev.config</DependentUpon>
     </Content>
-    <Content Include="Web.config" />
     <Content Include="Views\Shared\_Scripts.cshtml" />
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Shared\Modals\_LoginModal.cshtml" />
     <Content Include="Views\Shared\Modals\_LoginModal - Copy.cshtml" />
     <Content Include="Views\Home\_GameCard.cshtml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
