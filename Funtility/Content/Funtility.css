@@ -105,10 +105,6 @@
 
 /*#region GameCard*/
 
-.gameCardHead {
-
-}
-
 .gameCard {
     border-width: var(--border-width);
     border-color: var(--border-color);
@@ -119,22 +115,49 @@
     width: 400px;
 }
 
-.gameCardTitle {
+.gameCard-head {
+    height: 30px;
     border-width: var(--border-width);
     border-color: var(--border-color);
     border-style: var(--border-style);
-    background-color: var(--background-color);
-    padding: 8px;
-    line-height: 22px;
-    margin-bottom: 4px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    padding: 0 10px
 }
 
-.gameCardDescription {
+.gameCard-body {
+    height: 300px;
     border-width: var(--border-width);
     border-color: var(--border-color);
     border-style: var(--border-style);
-    background-color: var(--background-color);
-    padding: 4px;
+    border-top: none;
+    border-bottom: none;
+    padding: 10px;
 }
 
+.gameCard-footer {
+    height: 30px;
+    border-width: var(--border-width);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    padding: 0 10px
+}
+
+.gameCard-footer-button {
+    border-width: var(--border-width);
+    border-color: var(--border-color);
+    border-style: var(--border-style);
+    border-radius: 3px;
+    margin: 3px;
+    padding: 3px 0 3px 6px;
+    text-decoration: none;
+    color: black;
+    width: 109px;
+}
+
+.gameCard-footer-button:hover {
+    background-color: rgba(255, 255, 255, .6);
+}
 /*#endregion*/
